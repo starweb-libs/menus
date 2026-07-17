@@ -2,7 +2,7 @@
   "name": "@starweb-libs/menus",
   "description": "Composable canvas menu screens for browser games",
   "author": "Mason L'Etoile",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
     "tsdown": "^0.22.0"
   },
   "dependencies": {
-    "@starweb-libs/engine": "^0.0.7",
+    "@starweb-libs/engine": "^0.0.8",
     "@starweb-libs/audio": "^0.0.3",
     "@starweb-libs/ui": "^0.0.2"
   },
