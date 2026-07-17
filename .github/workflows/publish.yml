@@ -1,0 +1,17 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    uses: starweb-libs/.github/.github/workflows/build.yml@v1.0.0
+
+  publish:
+    needs: build
+    permissions:
+      contents: write
+    uses: starweb-libs/.github/.github/workflows/publish.yml@v1.0.0
+    secrets: inherit
