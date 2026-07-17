@@ -2,7 +2,7 @@ import { defineConfig } from "tsdown";
 
 export default defineConfig({
   entry: [
-    "src/types.ts",
+    "src/transition.ts",
   ],
   format: "esm",
   dts: true,

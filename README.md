@@ -13,7 +13,7 @@ Composable canvas menu screens for browser games, built with TypeScript.
 ## Modules
 | Module | Description |
 | ------ | ----------- |
-| `...`  | ...         |
+| `transition.js` | Plays the button sound, runs an optional callback, and flushes pointer + keyboard input between screens. |
 
 ## Installation
 ```bash

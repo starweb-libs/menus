@@ -37,10 +37,10 @@
   },
   "files": ["dist"],
   "exports": {
-    "./types.js": {
-      "types": "./dist/types.d.mts",
-      "@starweb-libs/source": "./src/types.ts",
-      "import": "./dist/types.mjs"
+    "./transition.js": {
+      "types": "./dist/transition.d.mts",
+      "@starweb-libs/source": "./src/transition.ts",
+      "import": "./dist/transition.mjs"
     }
   }
 }
