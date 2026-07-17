@@ -17,7 +17,7 @@ Composable canvas menu screens for browser games, built with TypeScript.
 
 ## Installation
 ```bash
-npm install github:starweb-libs/YOUR-LIBRARY-NAME
+npm install github:starweb-libs/menus
 ```
 
 ## License
