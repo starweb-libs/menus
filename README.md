@@ -14,6 +14,12 @@ Composable canvas menu screens for browser games, built with TypeScript.
 | Module | Description |
 | ------ | ----------- |
 | `transition.js` | Plays the button sound, runs an optional callback, and flushes pointer + keyboard input between screens. |
+| `title.js` | Title screen with START and SETTINGS buttons; takes a level count and an optional on-start callback. |
+| `levels.js` | Level-select grid (up to 9) with a Back button; takes the level list and a `selectLevel(index)` callback. |
+| `settings.js` | Settings screen with mute toggle and volume slider; takes the current slider state and returns the updated state alongside the frame. |
+| `pause.js` | Pause overlay with Resume / Restart / Quit buttons; takes a `resetPlayState` callback. |
+| `complete.js` | Level-complete overlay with Restart / Quit buttons, plus Next when a further level exists; takes the level index/count and `selectLevel` + `resetPlayState` callbacks. |
+| `failed.js` | Level-failed overlay with Restart / Quit buttons; takes a `resetPlayState` callback. |
 
 ## Installation
 ```bash
