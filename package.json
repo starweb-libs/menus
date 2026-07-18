@@ -2,7 +2,7 @@
   "name": "@starweb-libs/menus",
   "description": "Composable canvas menu screens for browser games",
   "author": "Mason L'Etoile",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -39,10 +39,13 @@
   },
   "files": ["dist"],
   "exports": {
-    "./transition.js": {
-      "types": "./dist/transition.d.mts",
-      "@starweb-libs/source": "./src/transition.ts",
-      "import": "./dist/transition.mjs"
-    }
+    "./types.js":      { "types": "./dist/types.d.mts",      "@starweb-libs/source": "./src/types.ts",      "import": "./dist/type.mjs" },
+    "./transition.js": { "types": "./dist/transition.d.mts", "@starweb-libs/source": "./src/transition.ts", "import": "./dist/transition.mjs" },
+    "./title.js":      { "types": "./dist/title.d.mts",      "@starweb-libs/source": "./src/title.ts",      "import": "./dist/title.mjs" },
+    "./settings.js":   { "types": "./dist/settings.d.mts",   "@starweb-libs/source": "./src/settings.ts",   "import": "./dist/settings.mjs" },
+    "./levels.js":     { "types": "./dist/levels.d.mts",     "@starweb-libs/source": "./src/levels.ts",     "import": "./dist/levels.mjs" },
+    "./pause.js":      { "types": "./dist/pause.d.mts",      "@starweb-libs/source": "./src/pause.ts",      "import": "./dist/pause.mjs" },
+    "./complete.js":   { "types": "./dist/complete.d.mts",   "@starweb-libs/source": "./src/complete.ts",   "import": "./dist/complete.mjs" },
+    "./failed.js":     { "types": "./dist/failed.d.mts",     "@starweb-libs/source": "./src/failed.ts",     "import": "./dist/failed.mjs" }
   }
 }
