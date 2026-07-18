@@ -1,0 +1,51 @@
+import type { Button                } from "@starweb-libs/ui/types.js";
+import type { Audio                 } from "@starweb-libs/audio/audio.js";
+import { getPointer                 } from "@starweb-libs/engine/input/pointer.js";
+import { getLayout, drawTitle       } from "@starweb-libs/ui/layout.js";
+import { getButtonState, drawButton } from "@starweb-libs/ui/button.js";
+import type { FailedAction, FailedFrame, FailedMenuState } from "./types.ts";
+import { transition                                      } from "./transition.ts";
+
+export function handleFailedFrame(
+  w: number, h: number, a: Audio,
+  resetPlayState: () => void
+): FailedFrame {
+  const { scale, gap, cx, cy, btnW, btnH } = getLayout(w, h);
+  const totalH  = btnH * 2 + gap;
+  const firstY  = cy - totalH / 2;
+  const titleY = firstY - btnH * 0.5 - gap * 2;
+
+  const restartBtn: Button = { x: cx - btnW/2, y: firstY,                                 w: btnW, h: btnH, label: "Restart" };
+  const quitBtn: Button = { x: cx - btnW/2, y: firstY + btnH + gap, w: btnW, h: btnH, label: "Quit" };
+
+  const restart = { btn: restartBtn, state: getButtonState(restartBtn, getPointer()) };
+  const quit    = { btn: quitBtn,    state: getButtonState(quitBtn, getPointer())    };
+
+  let action: FailedAction = null;
+  if (restart.state.clicked) action = "restart";
+  if (quit.state.clicked)    action = "quit";
+
+  const ui = { cx, scale, titleY, restart, quit, action };
+
+  if (ui.action === "quit")    return transition({ game: "menu-title", ui: null }, a);
+  if (ui.action === "restart") return transition(
+    { game: "level-playing", ui: null },
+    a,
+    () => resetPlayState()
+  );
+  return { game: "level-failed", ui };
+}
+
+export function renderFailedFrame(
+  ctx: CanvasRenderingContext2D,
+  ui: FailedMenuState | null,
+  w: number, h: number
+): void {
+  if (!ui) return;
+
+  ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+  ctx.fillRect(0, 0, w, h);
+  drawTitle(ctx, "Level Failed!", ui.cx, ui.titleY, ui.scale);
+  drawButton(ctx, ui.restart.btn, ui.restart.state);
+  drawButton(ctx, ui.quit.btn, ui.quit.state);
+}
